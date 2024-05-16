@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="displayFibonacciSequence"></div>
+    <div id="displayResult"></div>
+
+    <script>
+
+        let fibonacciRecursive = (n) => {
+            if (n <= 1) {
+                return n;
+            }
+            return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+        }
+
+        let putSequenceToArray = (count) => {
+            let fibonacciSequence = [];
+            for (let i = 0; i < count; i++) {
+                fibonacciSequence.push(fibonacciRecursive(i));
+            }
+            let displayFibonacciSequence = "";
+            displayFibonacciSequence += fibonacciSequence + ", ";
+            return displayFibonacciSequence;
+        }
+
+        let sum = 0;
+
+        let calSum = (count) => {
+            for (let i = 0; i < count; i++) {
+                sum += fibonacciRecursive(i);
+            }
+            let result = "";
+            result += "Total: " + sum;
+            return result;
+        }
+
+        document.querySelector("#displayFibonacciSequence").innerHTML = putSequenceToArray(10);
+        document.querySelector("#displayResult").innerHTML = calSum(10);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script>
+        a = [1, 8, 3, 4, 5]
+
+
+        function findMax(a) {
+            let max = a[0]
+            for (let i = 1; i < a.length; i++) {
+                if (max < a[i]) {
+                    max = a[i]
+                }
+            }
+            return max;
+        }
+
+        document.getElementById("test").innerHTML = a.length;
+
+    </script>
+</body>
+
+</html>

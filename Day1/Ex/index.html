@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Ex1:
+    <div id="originArray"></div>
+    <div id="newArray"></div>
+
+    <br><br>
+
+    Ex2:
+    <div id="sumRs">Sum result:&MediumSpace;</div>
+
+    <br><br>
+
+    Ex3:
+    <div id="checkNumberTrue"></div>
+    <div id="checkNumberFalse"></div>
+
+    <br><br>
+
+    Ex4:
+    <div id="checkGreaterThanTrue"></div>
+    <div id="checkGreaterThanFalse"></div>
+
+    <br><br>
+
+    Ex5:
+    <div id="greaterThan3"></div>
+
+    <br><br>
+
+    Ex6:
+    <div id="destructuringFirst"></div>
+    <div id="destructuringRest"></div>
+
+    <br><br>
+
+    Ex7:
+    <div id="destructuringProperties"></div>
+
+    <br><br>
+
+    Ex8:
+    <div id="sumRest"></div>
+
+    <br><br>
+
+    Ex9:
+    <div id="restString"></div>
+
+    <br><br>
+
+    Ex10:
+    <div id="displayObj"></div>
+
+
+    <script>
+        const ORIGINAR = document.querySelector("#originArray");
+        const NEWAR = document.querySelector("#newArray");
+        const SUMRS = document.querySelector("#sumRs");
+        const checkRST = document.querySelector("#checkNumberTrue");
+        const checkRSF = document.querySelector("#checkNumberFalse");
+        const checkGTRST = document.querySelector("#checkGreaterThanTrue");
+        const checkGTRSF = document.querySelector("#checkGreaterThanFalse");
+        const FINDGT3 = document.querySelector("#greaterThan3");
+        const DESTF = document.querySelector("#destructuringFirst");
+        const DESTR = document.querySelector("#destructuringRest");
+        const DESTP = document.querySelector("#destructuringProperties");
+        const SUMREST = document.querySelector("#sumRest");
+        const SHOWRESTSTRING = document.querySelector("#restString");
+        const SHOWOBJ = document.querySelector("#displayObj");
+
+        // Ex1:
+        let orArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let newArr = orArr.filter((num) => num > 5);
+
+        ORIGINAR.innerHTML = orArr;
+        NEWAR.innerHTML = newArr;
+
+        // Ex2:
+        SUMRS.innerHTML = orArr.reduce((after, num) => after + num, 0);
+
+        // Ex3:
+        let checkNumber = (num, arr) => {
+            let newArr = arr.filter((number) => number == num);
+            if (newArr.length > 0) {
+                return num;
+            }
+            return "Không tìm thấy";
+        }
+
+        checkRST.innerHTML = checkNumber(9, orArr);
+        checkRSF.innerHTML = checkNumber(10, orArr);
+
+        // Ex4:
+        let checkGreaterThan0 = (arr) => {
+            let newArr = arr.filter((number) => number <= 0);
+            if (newArr.length > 0) {
+                return "Mảng có chứa số nhỏ hơn hoặc bằng 0";
+            }
+            return "Không có số nào trong mảng nhỏ hơn hoặc bằng 0";
+        }
+        checkGTRST.innerHTML = checkGreaterThan0(orArr);
+        checkGTRSF.innerHTML = checkGreaterThan0(newArr);
+
+        // Ex5:
+        let findGreaterThan3 = (arr) => {
+            for (let i of arr) {
+                if (i > 3) {
+                    return i;
+                }
+                continue;
+            }
+            return "Không có số nào > 3";
+        }
+        FINDGT3.innerHTML = findGreaterThan3(orArr);
+
+        // Ex6:
+        let [first, ...theRest] = orArr;
+        DESTF.innerHTML = first;
+        DESTR.innerHTML = theRest;
+
+        // Ex7:
+        const PEOPLE = [
+            { name: "Nguyen Van A", city: "Ha Noi", age: 5 },
+            { name: "Nguyen Van B", city: "HCM", age: 10 },
+            { name: "Nguyen Van C", city: "Da Nang", age: 15 }
+        ];
+
+        let personProp = PEOPLE.map((person) => {
+            let newPer = { name: newName, age: newAge } = person;
+            DESTP.innerHTML += newName + "&MediumSpace;";
+            DESTP.innerHTML += newAge;
+            DESTP.innerHTML += "<br>";
+            return newPer;
+        });
+
+        // Ex8:
+        let sumRestParam = (...args) => {
+            let total = 0;
+            for (let arg of args) {
+                total += arg;
+            }
+            return total;
+        };
+
+        SUMREST.innerHTML = sumRestParam(1, 2, 3);
+
+
+        // Ex9:
+        let enterRestString = (...names) => {
+            let listName = "";
+            for (let name of names) {
+                listName += ", " + name;
+            }
+            return "Welcome" + listName;
+        };
+
+        SHOWRESTSTRING.innerHTML = enterRestString("TEST1", "TEST2", "TEST3");
+
+        // Ex10:
+        const book = {
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            pages: 218,
+            displayInfo() {
+                return `Title: ${this.title}<br>
+                Author: ${this.author}<br>
+                Pages: ${this.pages}`;
+            }
+        };
+
+        SHOWOBJ.innerHTML = book.displayInfo();
+
+    </script>
+</body>
+
+</html>
