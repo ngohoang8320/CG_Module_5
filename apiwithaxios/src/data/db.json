@@ -1,0 +1,22 @@
+{
+  "accounts": [
+    {
+      "id": "2",
+      "username": "Qdadsfwer",
+      "password": "sdafasdfasdf"
+    },
+    {
+      "id": "3",
+      "username": "Gasdfasfd",
+      "password": "adsfasdfas"
+    },
+    {
+      "id": "11",
+      "username": "Asakdfjhasfkh",
+      "password": "asfskalddfhakljsf"
+    }
+  ],
+  "students": [],
+  "classrooms": [],
+  "teachers": {}
+}

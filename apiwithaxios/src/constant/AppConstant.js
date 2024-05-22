@@ -1,0 +1,1 @@
+export const PREFIX_API = "https://664d6ddbede9a2b556537f00.mockapi.io/api/v1"
